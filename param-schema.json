@@ -1,0 +1,2884 @@
+{
+ "meta": {
+  "source": "大泰电控主包 paralistkey",
+  "generatedAt": "2026-11-12T18:06:23.847Z",
+  "groups": 11,
+  "fields": 55
+ },
+ "msgs": {
+  "1": {
+   "paraId": 1,
+   "name": "电机参数",
+   "vlen": 32,
+   "fields": [
+    {
+     "id": 20005,
+     "name": "传感器类型",
+     "formType": 1,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": [
+      "霍尔传感器",
+      "正交编码器",
+      "无位置传感器"
+     ],
+     "meta": null,
+     "index": 0
+    },
+    {
+     "id": 20006,
+     "name": "电机磁场结构",
+     "formType": 1,
+     "offset": 1,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": [
+      "表贴式",
+      "内嵌式"
+     ],
+     "meta": {
+      "desc": "Offset 1"
+     },
+     "index": 0
+    },
+    {
+     "id": 20001,
+     "name": "轮胎直径",
+     "formType": 0,
+     "offset": 2,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "cm",
+      "desc": "轮毂电机轮胎直径12寸42/10寸32"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 20002,
+     "name": "电机极对数",
+     "formType": 0,
+     "offset": 3,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "",
+      "desc": "大功率瓦片电机16，瓦电机30"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 20003,
+     "name": "电机齿轮比",
+     "formType": 0,
+     "offset": 4,
+     "dlen": 2,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "",
+      "desc": "只适用于中置电机带差速比"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 20004,
+     "name": "数据2",
+     "formType": 0,
+     "offset": 6,
+     "dlen": 2,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": ""
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 20008,
+     "name": "电机额定电流",
+     "formType": 0,
+     "offset": 8,
+     "dlen": 4,
+     "dr": 0.1,
+     "dt": 1,
+     "picker": null,
+     "meta": {
+      "unit": "A",
+      "desc": "Offset 8"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 20013,
+     "name": "保留",
+     "formType": 0,
+     "offset": 12,
+     "dlen": 4,
+     "dr": 1,
+     "dt": 1,
+     "picker": null,
+     "meta": {
+      "unit": "",
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 20009,
+     "name": "电机额定磁链",
+     "formType": 0,
+     "offset": 16,
+     "dlen": 4,
+     "dr": 1,
+     "dt": 1,
+     "picker": null,
+     "meta": {
+      "unit": "uWb",
+      "desc": "Offset 16"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 20010,
+     "name": "电机相电阻",
+     "formType": 0,
+     "offset": 20,
+     "dlen": 4,
+     "dr": 1,
+     "dt": 1,
+     "picker": null,
+     "meta": {
+      "unit": "uOhm",
+      "desc": "Offset 20"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 20011,
+     "name": "电机D轴电感",
+     "formType": 0,
+     "offset": 24,
+     "dlen": 4,
+     "dr": 1,
+     "dt": 1,
+     "picker": null,
+     "meta": {
+      "unit": "uH",
+      "desc": "Offset 24"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 20012,
+     "name": "电机Q轴电感",
+     "formType": 0,
+     "offset": 28,
+     "dlen": 4,
+     "dr": 1,
+     "dt": 1,
+     "picker": null,
+     "meta": {
+      "unit": "uH",
+      "desc": "Offset 28"
+     },
+     "Signalvalue": 0
+    }
+   ]
+  },
+  "2": {
+   "paraId": 2,
+   "name": "主辅传感器控制",
+   "vlen": 1,
+   "fields": [
+    {
+     "id": 21001,
+     "name": "传感器类型",
+     "formType": 1,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": [
+      "霍尔传感器",
+      "正交编码器",
+      "无位置传感器"
+     ],
+     "meta": null,
+     "index": 0
+    }
+   ]
+  },
+  "6": {
+   "paraId": 6,
+   "name": "电压参数",
+   "vlen": 24,
+   "fields": [
+    {
+     "id": 5001,
+     "name": "标称电压(V)",
+     "formType": 0,
+     "offset": 0,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 1,
+     "picker": null,
+     "meta": null,
+     "Signalvalue": 0
+    },
+    {
+     "id": 5002,
+     "name": "过压阈值(V)",
+     "formType": 0,
+     "offset": 2,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": null,
+     "Signalvalue": 0
+    },
+    {
+     "id": 5003,
+     "name": "过压滞回(V)",
+     "formType": 0,
+     "offset": 4,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": null,
+     "Signalvalue": 0
+    },
+    {
+     "id": 5004,
+     "name": "再生制动阈值(V)",
+     "formType": 0,
+     "offset": 6,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": null,
+     "Signalvalue": 0
+    },
+    {
+     "id": 5005,
+     "name": "电压不足阈值(V)",
+     "formType": 0,
+     "offset": 8,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 1,
+     "picker": null,
+     "meta": null,
+     "Signalvalue": 0
+    },
+    {
+     "id": 5006,
+     "name": "电压不足滞回(V)",
+     "formType": 0,
+     "offset": 10,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 1,
+     "picker": null,
+     "meta": null,
+     "Signalvalue": 0
+    },
+    {
+     "id": 5007,
+     "name": "欠压阈值1(V)",
+     "formType": 0,
+     "offset": 12,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": null,
+     "Signalvalue": 0
+    },
+    {
+     "id": 5008,
+     "name": "欠压滞回1(V)",
+     "formType": 0,
+     "offset": 14,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": null,
+     "Signalvalue": 0
+    },
+    {
+     "id": 5009,
+     "name": "欠压阈值2(V)",
+     "formType": 0,
+     "offset": 16,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": null,
+     "Signalvalue": 0
+    },
+    {
+     "id": 5010,
+     "name": "欠压滞回2(V)",
+     "formType": 0,
+     "offset": 18,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": null,
+     "Signalvalue": 0
+    },
+    {
+     "id": 5011,
+     "name": "低压阈值(V)",
+     "formType": 0,
+     "offset": 20,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": null,
+     "Signalvalue": 0
+    },
+    {
+     "id": 5012,
+     "name": "低压滞回(V)",
+     "formType": 0,
+     "offset": 22,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": null,
+     "Signalvalue": 0
+    }
+   ]
+  },
+  "7": {
+   "paraId": 7,
+   "name": "电流参数",
+   "vlen": 24,
+   "fields": [
+    {
+     "id": 7001,
+     "name": "峰值相电流",
+     "formType": 0,
+     "offset": 0,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "A",
+      "group": "phase"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 7002,
+     "name": "额定相电流",
+     "formType": 0,
+     "offset": 2,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "A",
+      "group": "phase",
+      "desc": "额定相电流不可高于峰值相电流"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 7003,
+     "name": "峰值放电时间",
+     "formType": 0,
+     "offset": 4,
+     "dlen": 2,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "S",
+      "group": "phase",
+      "desc": "氮气加速时长"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 7004,
+     "name": "锁电机相电流",
+     "formType": 0,
+     "offset": 6,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "A",
+      "group": "phase"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 7005,
+     "name": "制动相电流",
+     "formType": 0,
+     "offset": 8,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "A",
+      "group": "phase"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 7006,
+     "name": "停止相电流",
+     "formType": 0,
+     "offset": 10,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "A",
+      "group": "phase"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 7101,
+     "name": "峰值母线电流",
+     "formType": 0,
+     "offset": 12,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "A",
+      "group": "bus",
+      "desc": "为满把状态下母线输出电流"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 7103,
+     "name": "启动线电流",
+     "formType": 0,
+     "offset": 14,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "A",
+      "group": "bus"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 7102,
+     "name": "持续母线电流",
+     "formType": 0,
+     "offset": 16,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "A",
+      "group": "bus"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 7104,
+     "name": "制动线电流",
+     "formType": 0,
+     "offset": 18,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "A",
+      "group": "bus"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 7105,
+     "name": "锁电机线电流",
+     "formType": 0,
+     "offset": 20,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "A",
+      "group": "bus"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 7106,
+     "name": "停止线电流",
+     "formType": 0,
+     "offset": 22,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "A",
+      "group": "bus"
+     },
+     "Signalvalue": 0
+    }
+   ]
+  },
+  "8": {
+   "paraId": 8,
+   "name": "转把参数",
+   "vlen": 16,
+   "fields": [
+    {
+     "id": 40003,
+     "name": "转把最小无效阈值",
+     "formType": 0,
+     "offset": 0,
+     "dlen": 2,
+     "dr": 0.001,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "V",
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 40004,
+     "name": "转把最大无效阈值",
+     "formType": 0,
+     "offset": 2,
+     "dlen": 2,
+     "dr": 0.001,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "V",
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 40001,
+     "name": "转把最小有效阈值",
+     "formType": 0,
+     "offset": 4,
+     "dlen": 2,
+     "dr": 0.001,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "V"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 40002,
+     "name": "转把最大有效阈值",
+     "formType": 0,
+     "offset": 6,
+     "dlen": 2,
+     "dr": 0.001,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "V"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 40007,
+     "name": "1档油门曲线软硬",
+     "formType": 0,
+     "offset": 8,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {},
+     "Signalvalue": 0
+    },
+    {
+     "id": 40008,
+     "name": "2档油门曲线软硬",
+     "formType": 0,
+     "offset": 9,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {},
+     "Signalvalue": 0
+    },
+    {
+     "id": 40009,
+     "name": "3档油门曲线软硬",
+     "formType": 0,
+     "offset": 10,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {},
+     "Signalvalue": 0
+    },
+    {
+     "id": 40010,
+     "name": "备用",
+     "formType": 0,
+     "offset": 11,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 40005,
+     "name": "转把低通滤波带宽",
+     "formType": 0,
+     "offset": 12,
+     "dlen": 2,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "Hz",
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 40006,
+     "name": "转把稳定性",
+     "formType": 0,
+     "offset": 14,
+     "dlen": 2,
+     "dr": 0.001,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "V",
+      "hidden": true
+     },
+     "Signalvalue": 0
+    }
+   ]
+  },
+  "10": {
+   "paraId": 10,
+   "name": "挡位控制",
+   "vlen": 24,
+   "fields": [
+    {
+     "id": 10001,
+     "name": "挡位控制",
+     "formType": 2,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "",
+      "group": "base",
+      "desc": "关闭后默认为最高挡位"
+     },
+     "Signalvalue": false
+    },
+    {
+     "id": 10002,
+     "name": "挡位显示使能",
+     "formType": 2,
+     "offset": 1,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "",
+      "group": "base"
+     },
+     "Signalvalue": false
+    },
+    {
+     "id": 10003,
+     "name": "挡位类型",
+     "formType": 1,
+     "offset": 2,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": [
+      "拨动",
+      "点动",
+      "通讯"
+     ],
+     "meta": {
+      "unit": "",
+      "group": "base"
+     },
+     "index": 0
+    },
+    {
+     "id": 10004,
+     "name": "挡位模式",
+     "formType": 1,
+     "offset": 3,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": [
+      "两挡模式",
+      "三档模式",
+      "四档模式",
+      "五档模式"
+     ],
+     "meta": {
+      "unit": "",
+      "group": "base"
+     },
+     "index": 0
+    },
+    {
+     "id": 10005,
+     "name": "开机默认挡位",
+     "formType": 1,
+     "offset": 4,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": [
+      "P档",
+      "0档",
+      "1档",
+      "2挡",
+      "3挡"
+     ],
+     "meta": {
+      "unit": "",
+      "group": "base"
+     },
+     "index": 0
+    },
+    {
+     "id": 10006,
+     "name": "保留1",
+     "formType": 0,
+     "offset": 5,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "",
+      "group": "base"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10007,
+     "name": "保留2",
+     "formType": 0,
+     "offset": 6,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "",
+      "group": "base"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10008,
+     "name": "保留3",
+     "formType": 0,
+     "offset": 7,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "",
+      "group": "base"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10100,
+     "name": "0挡速度比例",
+     "formType": 0,
+     "offset": 8,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_speed"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10101,
+     "name": "1挡速度比例",
+     "formType": 0,
+     "offset": 9,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_speed"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10102,
+     "name": "2挡速度比例",
+     "formType": 0,
+     "offset": 10,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_speed"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10103,
+     "name": "3挡速度比例",
+     "formType": 0,
+     "offset": 11,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_speed"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10200,
+     "name": "0挡线电流比例",
+     "formType": 0,
+     "offset": 12,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_bus"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10201,
+     "name": "1挡线电流比例",
+     "formType": 0,
+     "offset": 13,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_bus"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10202,
+     "name": "2挡线电流比例",
+     "formType": 0,
+     "offset": 14,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_bus"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10203,
+     "name": "3挡线电流比例",
+     "formType": 0,
+     "offset": 15,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_bus"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10300,
+     "name": "0挡弱磁电流比例",
+     "formType": 0,
+     "offset": 16,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_fw"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10301,
+     "name": "1挡弱磁电流比例",
+     "formType": 0,
+     "offset": 17,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_fw"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10302,
+     "name": "2挡弱磁电流比例",
+     "formType": 0,
+     "offset": 18,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_fw"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10303,
+     "name": "3挡弱磁电流比例",
+     "formType": 0,
+     "offset": 19,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_fw"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10400,
+     "name": "0挡动能回收比例",
+     "formType": 0,
+     "offset": 20,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_regen"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10401,
+     "name": "1挡动能回收比例",
+     "formType": 0,
+     "offset": 21,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_regen"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10402,
+     "name": "2挡动能回收比例",
+     "formType": 0,
+     "offset": 22,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_regen"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 10403,
+     "name": "3挡动能回收比例",
+     "formType": 0,
+     "offset": 23,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "group": "ratio_regen"
+     },
+     "Signalvalue": 0
+    }
+   ]
+  },
+  "14": {
+   "paraId": 14,
+   "name": "倒车功能",
+   "vlen": 8,
+   "fields": [
+    {
+     "id": 30001,
+     "name": "倒车功能",
+     "formType": 2,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": null,
+     "Signalvalue": false
+    },
+    {
+     "id": 30003,
+     "name": "倒车控制模式",
+     "formType": 1,
+     "offset": 1,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": [
+      "按键输入",
+      "通讯输入",
+      "同时有效"
+     ],
+     "meta": {
+      "hidden": true
+     },
+     "index": 0
+    },
+    {
+     "id": 30004,
+     "name": "倒车启动允许",
+     "formType": 1,
+     "offset": 2,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": [
+      "前进请求无效",
+      "前进请求允许"
+     ],
+     "meta": {
+      "hidden": true
+     },
+     "index": 0
+    },
+    {
+     "id": 30005,
+     "name": "保留",
+     "formType": 0,
+     "offset": 3,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 30006,
+     "name": "倒车电压比例(%)",
+     "formType": 0,
+     "offset": 4,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 30007,
+     "name": "倒车电流比例(%)",
+     "formType": 0,
+     "offset": 5,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "km/h",
+      "desc": "轮毂电机建议10码以内"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 30002,
+     "name": "倒车车速限制",
+     "formType": 0,
+     "offset": 6,
+     "dlen": 2,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "km/h",
+      "desc": "轮毂电机建议10码以内",
+      "note": "协议字段：倒车切换速度阈值(RPM)"
+     },
+     "Signalvalue": 5
+    }
+   ]
+  },
+  "16": {
+   "paraId": 16,
+   "name": "限速设置",
+   "vlen": 8,
+   "fields": [
+    {
+     "id": 54001,
+     "name": "预留1",
+     "formType": 0,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 54002,
+     "name": "预留2",
+     "formType": 0,
+     "offset": 1,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 54003,
+     "name": "预留3",
+     "formType": 0,
+     "offset": 2,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 54004,
+     "name": "预留4",
+     "formType": 0,
+     "offset": 3,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 54005,
+     "name": "预留5",
+     "formType": 0,
+     "offset": 4,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 54006,
+     "name": "预留6",
+     "formType": 0,
+     "offset": 5,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 54007,
+     "name": "前进车速限制",
+     "formType": 0,
+     "offset": 6,
+     "dlen": 2,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "km/h"
+     },
+     "Signalvalue": 0
+    }
+   ]
+  },
+  "18": {
+   "paraId": 18,
+   "name": "仪表速度",
+   "vlen": 4,
+   "fields": [
+    {
+     "id": 17001,
+     "name": "仪表速度",
+     "formType": 2,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "",
+      "desc": "关闭后整车仪表速度显示为0"
+     },
+     "Signalvalue": true
+    },
+    {
+     "id": 17002,
+     "name": "仪表速度模式",
+     "formType": 1,
+     "offset": 1,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": [
+      "电门锁起动",
+      "按钮起动",
+      "通讯起动",
+      "密码起动"
+     ],
+     "meta": {
+      "hidden": true
+     },
+     "index": 0
+    },
+    {
+     "id": 17003,
+     "name": "仪表车速调节系数",
+     "formType": 0,
+     "offset": 2,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "",
+      "desc": [
+       "实际车速比仪表显示慢，调高数字",
+       "实际车速比仪表显示快，调低数字"
+      ]
+     },
+     "Signalvalue": 100
+    },
+    {
+     "id": 17004,
+     "name": "密码高字节",
+     "formType": 0,
+     "offset": 3,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    }
+   ]
+  },
+  "50": {
+   "paraId": 50,
+   "name": "动能回收",
+   "vlen": 11,
+   "fields": [
+    {
+     "id": 51001,
+     "name": "转把动能回收",
+     "formType": 2,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "",
+      "desc": [
+       "开启后松转把有动能回收",
+       "扭矩模式下转把动能回收无效"
+      ]
+     },
+     "Signalvalue": false
+    },
+    {
+     "id": 51002,
+     "name": "刹车动能回收",
+     "formType": 2,
+     "offset": 1,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "",
+      "desc": "开启后刹车时有动能回收"
+     },
+     "Signalvalue": false
+    },
+    {
+     "id": 51003,
+     "name": "制动线电流",
+     "formType": 0,
+     "offset": 2,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "A",
+      "desc": "设置动能回收时的回冲电流"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 51004,
+     "name": "1挡动能回收比例",
+     "formType": 0,
+     "offset": 4,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 51005,
+     "name": "2挡动能回收比例",
+     "formType": 0,
+     "offset": 5,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 51006,
+     "name": "3挡动能回收比例",
+     "formType": 0,
+     "offset": 6,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 51007,
+     "name": "保留1",
+     "formType": 0,
+     "offset": 7,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 51008,
+     "name": "保留2",
+     "formType": 0,
+     "offset": 8,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 51009,
+     "name": "保留3",
+     "formType": 0,
+     "offset": 9,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 51010,
+     "name": "保留4",
+     "formType": 0,
+     "offset": 10,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    }
+   ]
+  },
+  "51": {
+   "paraId": 51,
+   "name": "功能开关",
+   "vlen": 4,
+   "fields": [
+    {
+     "id": 52001,
+     "name": "功能开关组1",
+     "formType": 99,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "bitFields": [
+       {
+        "bit": 0,
+        "name": "电刹激活",
+        "desc": "关闭后刹车不断电"
+       },
+       {
+        "bit": 1,
+        "name": "制动警示",
+        "desc": "仅适用于双闪开关"
+       },
+       {
+        "bit": 2,
+        "name": "限速功能",
+        "desc": ""
+       },
+       {
+        "bit": 3,
+        "name": "巡航功能",
+        "desc": "为安全起见，10-80码有效"
+       },
+       {
+        "bit": 4,
+        "name": "防盗功能",
+        "desc": ""
+       },
+       {
+        "bit": 5,
+        "name": "陡坡缓降",
+        "desc": ""
+       },
+       {
+        "bit": 6,
+        "name": "边撑功能",
+        "desc": "关闭后边撑进P档取消"
+       },
+       {
+        "bit": 7,
+        "name": "边撑退P档",
+        "desc": "开启后收起边撑同时解除P档"
+       }
+      ]
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 52002,
+     "name": "功能开关组2",
+     "formType": 99,
+     "offset": 1,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "bitFields": [
+       {
+        "bit": 0,
+        "name": "抑制共振模式",
+        "desc": "开启后减小电机共振"
+       },
+       {
+        "bit": 1,
+        "name": "扭矩模式",
+        "desc": "默认速度模式"
+       },
+       {
+        "bit": 2,
+        "name": "电量模拟",
+        "desc": "仅针对无BMS车型"
+       },
+       {
+        "bit": 3,
+        "name": "Active sending",
+        "desc": ""
+       },
+       {
+        "bit": 4,
+        "name": "TCS牵引力",
+        "desc": ""
+       },
+       {
+        "bit": 5,
+        "name": "驻车辅助",
+        "desc": "开启后刹车3秒进入驻车"
+       },
+       {
+        "bit": 6,
+        "name": "按键P档",
+        "desc": "关闭后无P挡功能"
+       },
+       {
+        "bit": 7,
+        "name": "自动进P档",
+        "desc": "按键开启后有效:120s后进入P档模式"
+       }
+      ]
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 52003,
+     "name": "reserve组1",
+     "formType": 99,
+     "offset": 2,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "bitFields": [
+       {
+        "bit": 0,
+        "name": "防打齿",
+        "desc": "适用于带差速包电机启动瞬间打齿优化"
+       },
+       {
+        "bit": 1,
+        "name": "刹车退P挡",
+        "desc": "关闭后刹车不能解除P挡"
+       }
+      ]
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 52004,
+     "name": "reserve组2",
+     "formType": 99,
+     "offset": 3,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "bitFields": [
+       {
+        "bit": 0,
+        "name": "坐垫感应",
+        "desc": "关闭坐垫感应后不检测感应信号"
+       },
+       {
+        "bit": 1,
+        "name": "reserve4",
+        "desc": ""
+       }
+      ]
+     },
+     "Signalvalue": 0
+    }
+   ]
+  },
+  "52": {
+   "paraId": 52,
+   "name": "自动翘头",
+   "vlen": 14,
+   "fields": [
+    {
+     "id": 53001,
+     "name": "翘头控制",
+     "formType": 99,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "bitFields": [
+       {
+        "bit": 0,
+        "name": "一键翘头",
+        "desc": "拧电门就自动抬头、并稳住角度，不用手动控力防翻车。\n仅限封闭场地／赛道，严禁公共道路使用。"
+       },
+       {
+        "bit": 1,
+        "name": "安装方向",
+        "desc": "0:朝上0° 1:朝上180°"
+       }
+      ]
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 53002,
+     "name": "角度偏置",
+     "formType": 0,
+     "offset": 1,
+     "dlen": 2,
+     "dr": 0.03125,
+     "dt": 1,
+     "picker": null,
+     "meta": {
+      "unit": "°",
+      "desc": "车停在水平地面\"水平归零值\"，翘头角度精准，稳定的基础。俯仰角呈0度为准。"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 53003,
+     "name": "翘头刚度",
+     "formType": 0,
+     "offset": 3,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "desc": "刚度越高，车头抬得越快、角度稳得越\"硬\"；\n刚度越低，抬升越柔和、角度允许小幅波动（更平顺但响应慢）"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 53004,
+     "name": "翘头速度",
+     "formType": 0,
+     "offset": 4,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "%",
+      "desc": "车头从地面抬升到目标角度的快慢"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 53005,
+     "name": "翘头角度",
+     "formType": 0,
+     "offset": 5,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "unit": "°",
+      "desc": "设置目标翘头角度15-35°(新手)、35-60°(进阶)、60-80°(大神)"
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 53006,
+     "name": "预留5",
+     "formType": 0,
+     "offset": 6,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 53007,
+     "name": "预留6",
+     "formType": 0,
+     "offset": 7,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 53008,
+     "name": "预留7",
+     "formType": 0,
+     "offset": 8,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 53009,
+     "name": "预留8",
+     "formType": 0,
+     "offset": 9,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 53010,
+     "name": "预留9",
+     "formType": 0,
+     "offset": 10,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 53011,
+     "name": "预留10",
+     "formType": 0,
+     "offset": 11,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 53012,
+     "name": "预留11",
+     "formType": 0,
+     "offset": 12,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    },
+    {
+     "id": 53013,
+     "name": "预留12",
+     "formType": 0,
+     "offset": 13,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "picker": null,
+     "meta": {
+      "hidden": true
+     },
+     "Signalvalue": 0
+    }
+   ]
+  }
+ },
+ "groups": [
+  {
+   "title": "相线电流参数",
+   "msgId": 7,
+   "msgIds": [
+    7
+   ],
+   "gridLayout": false,
+   "requireImu": false,
+   "rows": [
+    {
+     "id": 7001,
+     "key": "field_7001",
+     "name": "峰值相电流",
+     "formType": "input",
+     "msgId": 7,
+     "offset": 0,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "A"
+    },
+    {
+     "id": 7002,
+     "key": "field_7002",
+     "name": "额定相电流",
+     "formType": "input",
+     "msgId": 7,
+     "offset": 2,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "A",
+     "desc": "额定相电流不可高于峰值相电流"
+    }
+   ]
+  },
+  {
+   "title": "母线电流参数",
+   "msgId": 7,
+   "msgIds": [
+    7
+   ],
+   "gridLayout": false,
+   "requireImu": false,
+   "rows": [
+    {
+     "id": 7101,
+     "key": "field_7101",
+     "name": "峰值母线电流",
+     "formType": "input",
+     "msgId": 7,
+     "offset": 12,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "A",
+     "desc": "为满把状态下母线输出电流"
+    },
+    {
+     "id": 7102,
+     "key": "field_7102",
+     "name": "持续母线电流",
+     "formType": "input",
+     "msgId": 7,
+     "offset": 16,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "A"
+    },
+    {
+     "id": 7003,
+     "key": "field_7003",
+     "name": "峰值放电时间",
+     "formType": "input",
+     "msgId": 7,
+     "offset": 4,
+     "dlen": 2,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "S",
+     "desc": "氮气加速时长"
+    }
+   ]
+  },
+  {
+   "title": "挡位控制",
+   "msgId": 10,
+   "msgIds": [
+    10
+   ],
+   "gridLayout": false,
+   "requireImu": false,
+   "rows": [
+    {
+     "id": 10001,
+     "key": "field_10001",
+     "name": "挡位控制",
+     "formType": "switch",
+     "msgId": 10,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "desc": "关闭后默认为最高挡位"
+    },
+    {
+     "id": 10003,
+     "key": "field_10003",
+     "name": "挡位类型",
+     "formType": "picker",
+     "msgId": 10,
+     "offset": 2,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "range": [
+      "拨动",
+      "点动",
+      "通讯"
+     ]
+    },
+    {
+     "id": 10004,
+     "key": "field_10004",
+     "name": "挡位模式",
+     "formType": "picker",
+     "msgId": 10,
+     "offset": 3,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "range": [
+      "两挡模式",
+      "三档模式",
+      "四档模式",
+      "五档模式"
+     ]
+    },
+    {
+     "id": 10101,
+     "key": "field_10101",
+     "name": "1挡速度比例",
+     "formType": "input",
+     "msgId": 10,
+     "offset": 9,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "%",
+     "gear": 1
+    },
+    {
+     "id": 10201,
+     "key": "field_10201",
+     "name": "1挡线电流比例",
+     "formType": "input",
+     "msgId": 10,
+     "offset": 13,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "%",
+     "gear": 1
+    },
+    {
+     "id": 10102,
+     "key": "field_10102",
+     "name": "2挡速度比例",
+     "formType": "input",
+     "msgId": 10,
+     "offset": 10,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "%",
+     "gear": 2
+    },
+    {
+     "id": 10202,
+     "key": "field_10202",
+     "name": "2挡线电流比例",
+     "formType": "input",
+     "msgId": 10,
+     "offset": 14,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "%",
+     "gear": 2
+    },
+    {
+     "id": 10302,
+     "key": "field_10302",
+     "name": "2挡弱磁电流比例",
+     "formType": "input",
+     "msgId": 10,
+     "offset": 18,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "%",
+     "gear": 2
+    },
+    {
+     "id": 10103,
+     "key": "field_10103",
+     "name": "3挡速度比例",
+     "formType": "input",
+     "msgId": 10,
+     "offset": 11,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "%",
+     "gear": 3
+    },
+    {
+     "id": 10203,
+     "key": "field_10203",
+     "name": "3挡线电流比例",
+     "formType": "input",
+     "msgId": 10,
+     "offset": 15,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "%",
+     "gear": 3
+    },
+    {
+     "id": 10303,
+     "key": "field_10303",
+     "name": "3挡弱磁电流比例",
+     "formType": "input",
+     "msgId": 10,
+     "offset": 19,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "%",
+     "gear": 3
+    }
+   ]
+  },
+  {
+   "title": "电机参数",
+   "msgId": 1,
+   "msgIds": [
+    1
+   ],
+   "gridLayout": false,
+   "requireImu": false,
+   "rows": [
+    {
+     "id": 20001,
+     "key": "field_20001",
+     "name": "轮胎直径",
+     "formType": "input",
+     "msgId": 1,
+     "offset": 2,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "cm",
+     "desc": "轮毂电机轮胎直径12寸42/10寸32"
+    },
+    {
+     "id": 20002,
+     "key": "field_20002",
+     "name": "电机极对数",
+     "formType": "input",
+     "msgId": 1,
+     "offset": 3,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "desc": "大功率瓦片电机16，瓦电机30"
+    },
+    {
+     "id": 20003,
+     "key": "field_20003",
+     "name": "电机齿轮比",
+     "formType": "input",
+     "msgId": 1,
+     "offset": 4,
+     "dlen": 2,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "desc": "只适用于中置电机带差速比"
+    },
+    {
+     "id": 20005,
+     "key": "field_20005",
+     "name": "传感器类型",
+     "formType": "picker",
+     "msgId": 1,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "range": [
+      "霍尔传感器",
+      "正交编码器",
+      "无位置传感器"
+     ]
+    },
+    {
+     "id": 20004,
+     "key": "field_20004",
+     "name": "数据2",
+     "formType": "input",
+     "msgId": 1,
+     "offset": 6,
+     "dlen": 2,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false
+    }
+   ]
+  },
+  {
+   "title": "倒车功能",
+   "msgId": 14,
+   "msgIds": [
+    14
+   ],
+   "gridLayout": false,
+   "requireImu": false,
+   "rows": [
+    {
+     "id": 30001,
+     "key": "field_30001",
+     "name": "倒车功能",
+     "formType": "switch",
+     "msgId": 14,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false
+    },
+    {
+     "id": 30007,
+     "key": "field_30007",
+     "name": "倒车车速限制",
+     "formType": "input",
+     "msgId": 14,
+     "offset": 5,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "km/h",
+     "desc": "轮毂电机建议10码以内"
+    }
+   ]
+  },
+  {
+   "title": "转把参数",
+   "msgId": 8,
+   "msgIds": [
+    8
+   ],
+   "gridLayout": false,
+   "requireImu": false,
+   "rows": [
+    {
+     "id": 40001,
+     "key": "field_40001",
+     "name": "转把最小有效阈值",
+     "formType": "input",
+     "msgId": 8,
+     "offset": 4,
+     "dlen": 2,
+     "dr": 0.001,
+     "dt": 0,
+     "hidden": false,
+     "unit": "V"
+    },
+    {
+     "id": 40002,
+     "key": "field_40002",
+     "name": "转把最大有效阈值",
+     "formType": "input",
+     "msgId": 8,
+     "offset": 6,
+     "dlen": 2,
+     "dr": 0.001,
+     "dt": 0,
+     "hidden": false,
+     "unit": "V"
+    },
+    {
+     "id": 40007,
+     "key": "field_40007",
+     "name": "1档油门曲线软硬",
+     "formType": "slider",
+     "msgId": 8,
+     "offset": 8,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "min": 0,
+     "max": 127,
+     "step": 1,
+     "leftLabel": "软",
+     "rightLabel": "硬"
+    },
+    {
+     "id": 40008,
+     "key": "field_40008",
+     "name": "2档油门曲线软硬",
+     "formType": "slider",
+     "msgId": 8,
+     "offset": 9,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "min": 0,
+     "max": 127,
+     "step": 1,
+     "leftLabel": "软",
+     "rightLabel": "硬"
+    },
+    {
+     "id": 40009,
+     "key": "field_40009",
+     "name": "3档油门曲线软硬",
+     "formType": "slider",
+     "msgId": 8,
+     "offset": 10,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "min": 0,
+     "max": 127,
+     "step": 1,
+     "leftLabel": "软",
+     "rightLabel": "硬"
+    }
+   ]
+  },
+  {
+   "title": "动能回收",
+   "msgId": 50,
+   "msgIds": [
+    50
+   ],
+   "gridLayout": false,
+   "requireImu": false,
+   "rows": [
+    {
+     "id": 51001,
+     "key": "field_51001",
+     "name": "转把动能回收",
+     "formType": "switch",
+     "msgId": 50,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "desc": [
+      "开启后松转把有动能回收",
+      "扭矩模式下转把动能回收无效"
+     ]
+    },
+    {
+     "id": 51002,
+     "key": "field_51002",
+     "name": "刹车动能回收",
+     "formType": "switch",
+     "msgId": 50,
+     "offset": 1,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "desc": "开启后刹车时有动能回收"
+    },
+    {
+     "id": 51003,
+     "key": "field_51003",
+     "name": "制动线电流",
+     "formType": "input",
+     "msgId": 50,
+     "offset": 2,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "A",
+     "desc": "设置动能回收时的回冲电流"
+    },
+    {
+     "id": 51004,
+     "key": "field_51004",
+     "name": "1挡动能回收比例",
+     "formType": "input",
+     "msgId": 50,
+     "offset": 4,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "%"
+    },
+    {
+     "id": 51005,
+     "key": "field_51005",
+     "name": "2挡动能回收比例",
+     "formType": "input",
+     "msgId": 50,
+     "offset": 5,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "%"
+    },
+    {
+     "id": 51006,
+     "key": "field_51006",
+     "name": "3挡动能回收比例",
+     "formType": "input",
+     "msgId": 50,
+     "offset": 6,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "%"
+    }
+   ]
+  },
+  {
+   "title": "仪表速度",
+   "msgId": 18,
+   "msgIds": [
+    18
+   ],
+   "gridLayout": false,
+   "requireImu": false,
+   "rows": [
+    {
+     "id": 17001,
+     "key": "field_17001",
+     "name": "仪表速度",
+     "formType": "switch",
+     "msgId": 18,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "desc": "关闭后整车仪表速度显示为0"
+    },
+    {
+     "id": 17003,
+     "key": "field_17003",
+     "name": "仪表车速调节系数",
+     "formType": "input",
+     "msgId": 18,
+     "offset": 2,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "desc": [
+      "实际车速比仪表显示慢，调高数字",
+      "实际车速比仪表显示快，调低数字"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "功能开关",
+   "msgId": 51,
+   "msgIds": [
+    51
+   ],
+   "gridLayout": true,
+   "requireImu": false,
+   "rows": [
+    {
+     "id": 52001,
+     "key": "field_52001",
+     "name": "功能开关组1",
+     "formType": "grid-switch",
+     "msgId": 51,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "bits": [
+      "电刹激活",
+      "制动警示",
+      "限速功能",
+      "巡航功能",
+      "防盗功能",
+      "陡坡缓降",
+      "边撑功能",
+      "边撑退P档"
+     ],
+     "bitIndices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "bitDescs": [
+      "关闭后刹车不断电",
+      "仅适用于双闪开关",
+      "",
+      "为安全起见，10-80码有效",
+      "",
+      "",
+      "关闭后边撑进P档取消",
+      "开启后收起边撑同时解除P档"
+     ]
+    },
+    {
+     "id": 52002,
+     "key": "field_52002",
+     "name": "功能开关组2",
+     "formType": "grid-switch",
+     "msgId": 51,
+     "offset": 1,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "bits": [
+      "抑制共振模式",
+      "扭矩模式",
+      "电量模拟",
+      "Active sending",
+      "TCS牵引力",
+      "驻车辅助",
+      "按键P档",
+      "自动进P档"
+     ],
+     "bitIndices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "bitDescs": [
+      "开启后减小电机共振",
+      "默认速度模式",
+      "仅针对无BMS车型",
+      "",
+      "",
+      "开启后刹车3秒进入驻车",
+      "关闭后无P挡功能",
+      "按键开启后有效:120s后进入P档模式"
+     ]
+    },
+    {
+     "id": 52003,
+     "key": "field_52003",
+     "name": "reserve组1",
+     "formType": "grid-switch",
+     "msgId": 51,
+     "offset": 2,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "bits": [
+      "防打齿",
+      "刹车退P挡"
+     ],
+     "bitIndices": [
+      0,
+      1
+     ],
+     "bitDescs": [
+      "适用于带差速包电机启动瞬间打齿优化",
+      "关闭后刹车不能解除P挡"
+     ]
+    },
+    {
+     "id": 52004,
+     "key": "field_52004",
+     "name": "reserve组2",
+     "formType": "grid-switch",
+     "msgId": 51,
+     "offset": 3,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "bits": [
+      "坐垫感应",
+      "reserve4"
+     ],
+     "bitIndices": [
+      0,
+      1
+     ],
+     "bitDescs": [
+      "关闭坐垫感应后不检测感应信号",
+      ""
+     ]
+    }
+   ]
+  },
+  {
+   "title": "限速设置",
+   "msgId": 16,
+   "msgIds": [
+    16
+   ],
+   "gridLayout": false,
+   "requireImu": false,
+   "rows": [
+    {
+     "id": 54007,
+     "key": "field_54007",
+     "name": "前进车速限制",
+     "formType": "input",
+     "msgId": 16,
+     "offset": 6,
+     "dlen": 2,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "km/h"
+    }
+   ]
+  },
+  {
+   "title": "自动翘头",
+   "msgId": 52,
+   "msgIds": [
+    52
+   ],
+   "gridLayout": false,
+   "requireImu": true,
+   "rows": [
+    {
+     "id": 53001,
+     "key": "field_53001",
+     "name": "翘头控制",
+     "formType": "bit-switch",
+     "msgId": 52,
+     "offset": 0,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "bits": [
+      "一键翘头"
+     ],
+     "bitIndices": [
+      0
+     ],
+     "bitDescs": [
+      "拧电门就自动抬头、并稳住角度，不用手动控力防翻车。\n仅限封闭场地／赛道，严禁公共道路使用。"
+     ]
+    },
+    {
+     "id": 53002,
+     "key": "field_53002",
+     "name": "角度偏置",
+     "formType": "input",
+     "msgId": 52,
+     "offset": 1,
+     "dlen": 2,
+     "dr": 0.03125,
+     "dt": 1,
+     "hidden": false,
+     "inputType": "text",
+     "min": -120,
+     "max": 120,
+     "decimals": 1,
+     "unit": "°",
+     "desc": "车停在水平地面\"水平归零值\"，翘头角度精准，稳定的基础。俯仰角呈0度为准。"
+    },
+    {
+     "id": 53001,
+     "key": "field_53001_bit1",
+     "name": "安装方向",
+     "formType": "bit-picker",
+     "msgId": 52,
+     "dlen": 0,
+     "dr": 1,
+     "dt": 0,
+     "bitIndex": 1,
+     "range": [
+      "朝上0°",
+      "朝上180°"
+     ],
+     "hidden": false
+    },
+    {
+     "id": 53005,
+     "key": "field_53005",
+     "name": "翘头角度",
+     "formType": "input",
+     "msgId": 52,
+     "offset": 5,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "°",
+     "desc": "设置目标翘头角度15-35°(新手)、35-60°(进阶)、60-80°(大神)"
+    },
+    {
+     "id": 53003,
+     "key": "field_53003",
+     "name": "翘头刚度",
+     "formType": "slider",
+     "msgId": 52,
+     "offset": 3,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "min": 0,
+     "max": 100,
+     "step": 1,
+     "unit": "%",
+     "desc": "刚度越高，车头抬得越快、角度稳得越\"硬\"；\n刚度越低，抬升越柔和、角度允许小幅波动（更平顺但响应慢）"
+    },
+    {
+     "id": 53004,
+     "key": "field_53004",
+     "name": "翘头速度",
+     "formType": "slider",
+     "msgId": 52,
+     "offset": 4,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": false,
+     "min": 0,
+     "max": 100,
+     "step": 1,
+     "unit": "%",
+     "desc": "车头从地面抬升到目标角度的快慢"
+    },
+    {
+     "id": 53006,
+     "key": "field_53006",
+     "name": "预留5",
+     "formType": "input",
+     "msgId": 52,
+     "offset": 6,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": true
+    },
+    {
+     "id": 53007,
+     "key": "field_53007",
+     "name": "预留6",
+     "formType": "input",
+     "msgId": 52,
+     "offset": 7,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": true
+    },
+    {
+     "id": 53008,
+     "key": "field_53008",
+     "name": "预留7",
+     "formType": "input",
+     "msgId": 52,
+     "offset": 8,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": true
+    },
+    {
+     "id": 53009,
+     "key": "field_53009",
+     "name": "预留8",
+     "formType": "input",
+     "msgId": 52,
+     "offset": 9,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": true
+    },
+    {
+     "id": 53010,
+     "key": "field_53010",
+     "name": "预留9",
+     "formType": "input",
+     "msgId": 52,
+     "offset": 10,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": true
+    },
+    {
+     "id": 53011,
+     "key": "field_53011",
+     "name": "预留10",
+     "formType": "input",
+     "msgId": 52,
+     "offset": 11,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": true
+    },
+    {
+     "id": 53012,
+     "key": "field_53012",
+     "name": "预留11",
+     "formType": "input",
+     "msgId": 52,
+     "offset": 12,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": true
+    },
+    {
+     "id": 53013,
+     "key": "field_53013",
+     "name": "预留12",
+     "formType": "input",
+     "msgId": 52,
+     "offset": 13,
+     "dlen": 1,
+     "dr": 1,
+     "dt": 0,
+     "hidden": true
+    }
+   ]
+  }
+ ]
+}

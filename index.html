@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0e11">
+<title>电控调试台</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <div>
+        <div class="brand-title">电控调试台</div>
+        <div class="brand-sub" id="connSub">未连接</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <span class="dot" id="connDot"></span>
+      <button class="btn btn-ghost" id="btnSettings" title="设置">设置</button>
+      <button class="btn btn-primary" id="btnConnect">连接</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 仪表 -->
+    <section class="view active" id="view-dash">
+      <div class="gauge-wrap">
+        <canvas id="gauge" width="720" height="720"></canvas>
+        <div class="gauge-center">
+          <div class="gear" id="gearLabel">P</div>
+          <div class="speed-block">
+            <div class="speed" id="speedVal">0</div>
+            <div class="unit">km/h</div>
+            <div class="rpm" id="rpmVal">0 rpm</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fault-banner" id="faultBanner">未连接</div>
+
+      <div class="grid-4">
+        <div class="metric"><span>母线电压</span><b id="mVolt">--</b></div>
+        <div class="metric"><span>母线电流</span><b id="mIbus">--</b></div>
+        <div class="metric"><span>相线电流</span><b id="mIph">--</b></div>
+        <div class="metric"><span>油门开度</span><b id="mThrottle">--</b></div>
+        <div class="metric"><span>控制器温度</span><b id="mTpcu">--</b></div>
+        <div class="metric"><span>电机温度</span><b id="mTmotor">--</b></div>
+        <div class="metric"><span>俯仰角</span><b id="mPitch">--</b></div>
+        <div class="metric"><span>横滚角</span><b id="mRoll">--</b></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>车辆状态</h3><span class="hint" id="imuHint">IMU --</span></div>
+        <div class="chips" id="statusChips"></div>
+      </div>
+    </section>
+
+    <!-- 参数 -->
+    <section class="view" id="view-params">
+      <div class="card" id="paramNotice">
+        <div class="card-head"><h3>参数表状态</h3></div>
+        <p class="muted" id="paramNoticeText">正在检查参数表…</p>
+      </div>
+      <div id="paramGroups"></div>
+      <div class="card">
+        <div class="card-head"><h3>恢复出厂</h3></div>
+        <p class="muted">下发 FRST 指令，控制器会恢复默认参数，操作不可撤销。</p>
+        <button class="btn btn-danger" id="btnFactory">恢复出厂设置</button>
+      </div>
+    </section>
+
+    <!-- 自学习 -->
+    <section class="view" id="view-learn">
+      <div class="card">
+        <div class="card-head"><h3>自学习状态</h3><span class="hint" id="learnSeconds">--</span></div>
+        <div class="learn-status" id="learnStatus">未开始</div>
+        <div class="learn-steps" id="learnSteps"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h3>参数识别结果</h3></div>
+        <div class="kv" id="learnResults"><span class="muted">暂无数据</span></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h3>操作</h3></div>
+        <div class="row">
+          <button class="btn" id="btnLearnRead">读取状态</button>
+          <button class="btn btn-primary" id="btnLearnStart">开始自学习</button>
+          <button class="btn" id="btnLearnDir">切换方向</button>
+          <button class="btn btn-ok" id="btnLearnSave">保存</button>
+        </div>
+        <p class="muted">自学习会驱动电机转动，请把车辆架空、远离人员和障碍物。</p>
+      </div>
+    </section>
+
+    <!-- 升级 -->
+    <section class="view" id="view-ota">
+      <div class="card">
+        <div class="card-head"><h3>控制器固件升级</h3><span class="hint" id="otaState">待机</span></div>
+        <p class="muted">选择本地 .hex（Intel HEX）或 .bin 文件。升级过程中请保持连接，不要断电。</p>
+        <input type="file" id="otaFile" accept=".hex,.bin" hidden>
+        <div class="row">
+          <button class="btn" id="btnPickFw">选择固件</button>
+          <button class="btn btn-primary" id="btnOtaStart" disabled>开始升级</button>
+          <button class="btn btn-danger" id="btnOtaAbort" disabled>中止</button>
+        </div>
+        <div class="file-info" id="otaFileInfo"></div>
+        <div class="progress"><div class="bar" id="otaBar"></div></div>
+        <div class="ota-log" id="otaLog"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h3>升级说明</h3></div>
+        <ul class="tips">
+          <li>升级走控制器 IAP 协议（0x6996 帧），仅在蓝牙已连接时可用。</li>
+          <li>识别不到应答时会重试；若持续失败可点“中止”后重新连接再试。</li>
+          <li>固件请使用与你控制器型号匹配的版本，刷错型号可能变砖。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 设备 -->
+    <section class="view" id="view-info">
+      <div class="card">
+        <div class="card-head"><h3>控制器信息</h3><button class="btn btn-sm" id="btnReadInfo">全部读取</button></div>
+        <div class="kv">
+          <div><span>控制器型号</span><b id="infoModel">--</b></div>
+          <div><span>电机控制编号</span><b id="infoMotor">--</b></div>
+          <div><span>应用程序版本</span><b id="infoApp">--</b></div>
+          <div><span>Bootloader</span><b id="infoBoot">--</b></div>
+          <div><span>控制板编号</span><b id="infoCtrl">--</b></div>
+          <div><span>功率板编号</span><b id="infoPower">--</b></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h3>连接信息</h3></div>
+        <div class="kv">
+          <div><span>设备名称</span><b id="devName">--</b></div>
+          <div><span>设备 ID</span><b id="devId">--</b></div>
+          <div><span>服务 UUID</span><b id="devSvc">--</b></div>
+          <div><span>写 / 通知特征</span><b id="devChr">--</b></div>
+          <div><span>当前 CRC 模式</span><b id="devCrc">--</b></div>
+        </div>
+        <button class="btn btn-ghost" id="btnDiscover">重新枚举服务</button>
+      </div>
+    </section>
+
+    <!-- 日志 -->
+    <section class="view" id="view-logs">
+      <div class="card">
+        <div class="card-head"><h3>收发日志</h3>
+          <div class="row-inline">
+            <button class="btn btn-sm" id="btnLogClear">清空</button>
+            <button class="btn btn-sm" id="btnLogCopy">复制</button>
+          </div>
+        </div>
+        <div class="log" id="logList"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h3>原始指令</h3><span class="hint">自动追加 CRC</span></div>
+        <div class="row">
+          <input class="input" id="rawCmd" placeholder="050101000000" autocapitalize="characters">
+          <button class="btn btn-primary" id="btnRawSend">发送</button>
+        </div>
+        <div class="row">
+          <button class="btn btn-sm" data-cmd="050101000000">实时数据</button>
+          <button class="btn btn-sm" data-cmd="050101030100">控制器型号</button>
+          <button class="btn btn-sm" data-cmd="050101010800">学习状态</button>
+          <button class="btn btn-sm" data-cmd="050101010000">学习参数</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="tabbar">
+    <button data-view="dash" class="active">仪表</button>
+    <button data-view="params">参数</button>
+    <button data-view="learn">学习</button>
+    <button data-view="ota">升级</button>
+    <button data-view="info">设备</button>
+    <button data-view="logs">日志</button>
+  </nav>
+</div>
+
+<dialog id="settings">
+  <form method="dialog">
+    <h2>设置</h2>
+    <label>设备名前缀
+      <input class="input" id="setNamePrefix" value="DT" placeholder="留空则显示全部设备">
+    </label>
+    <label>自定义服务 UUID（可选，多个用逗号分隔）
+      <input class="input" id="setServiceUuid" placeholder="例如 0000FFE0-0000-1000-8000-00805F9B34FB">
+    </label>
+    <label>CRC 模式
+      <select class="input" id="setCrc">
+        <option value="sum8">单字节累加和（默认，控制器实际使用）</option>
+        <option value="sum16be">累加和取反 16 位（大端）</option>
+        <option value="sum16le">累加和取反 16 位（小端）</option>
+        <option value="crc16mb">CRC16 Modbus（大端）</option>
+        <option value="crc16mble">CRC16 Modbus（小端）</option>
+        <option value="xor8">XOR 8 位</option>
+        <option value="none">不追加校验</option>
+      </select>
+    </label>
+    <label>写入分片大小（字节）
+      <input class="input" id="setChunk" type="number" min="8" max="512" value="20">
+    </label>
+    <label class="check"><input type="checkbox" id="setNoResp" checked> 优先使用无响应写入</label>
+    <label>实时刷新间隔（毫秒）
+      <input class="input" id="setPoll" type="number" min="100" max="2000" step="50" value="200">
+    </label>
+    <label class="check"><input type="checkbox" id="setAutoPoll" checked> 仪表页自动轮询实时数据</label>
+    <div class="row right">
+      <button class="btn" value="cancel">取消</button>
+      <button class="btn btn-primary" id="btnSaveSettings" value="default">保存</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast"></div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
