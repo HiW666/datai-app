@@ -1115,6 +1115,69 @@ function saveSettings() {
   }
 }
 
+/* ---------- 仪表车辆通讯协议 ---------- */
+const YIBIAO_BRANDS = [
+  { name: '极核', models: [{ name: 'AE5', index: 9 }, { name: 'AE4', index: 13 }, { name: 'AE4MY25', index: 16 }, { name: 'AE3', index: 27 }] },
+  { name: '九号', models: [{ name: '九号NEM', index: 1 }, { name: '九号MZ', index: 12 }, { name: '九号E300P', index: 22 }] },
+  { name: '小牛', models: [{ name: '小牛N1S', index: 2 }, { name: '小牛NXT', index: 10 }, { name: '小牛N play', index: 18 }, { name: '小牛FX风速', index: 24 }] },
+  { name: '雅迪', models: [{ name: '雅迪通用', index: 3 }, { name: '雅迪G30', index: 8 }, { name: '雅迪白鲨', index: 28 }, { name: '雅迪YXT1', index: 32 }, { name: '雅迪YXT2', index: 33 }, { name: '雅迪YXT3', index: 34 }, { name: '雅迪485', index: 31 }] },
+  { name: '黑骑士', models: [{ name: '黑骑士', index: 6 }, { name: '黑武士(485)', index: 25 }] },
+  { name: '台铃', models: [{ name: '台铃Y431', index: 11 }, { name: '台铃封神', index: 23 }] },
+  { name: '绿源', models: [{ name: '绿源S70', index: 21 }] },
+  { name: '小刀', models: [{ name: '小刀', index: 7 }] },
+  { name: '金箭', models: [{ name: '金箭零界900', index: 19 }, { name: '金箭金刚1000', index: 20 }, { name: '金刚侠', index: 5 }] },
+  { name: '首驱', models: [{ name: '首驱', index: 26 }] },
+  { name: '协议一', models: [{ name: '五星钻豹', index: 17 }, { name: '一线通YXT1', index: 39 }, { name: '一线通YXT2', index: 40 }, { name: '一线通YXT3', index: 41 }, { name: '一线通YXT4', index: 42 }, { name: '一线通YXT5', index: 43 }] },
+  { name: '协议二', models: [{ name: '协议二', index: 35 }] },
+  { name: '预留一', models: [{ name: '预留一', index: 36 }] },
+  { name: '预留二', models: [{ name: '预留二', index: 37 }] },
+  { name: '预留三', models: [{ name: '预留三', index: 38 }] },
+];
+
+function currentYibiaoSelection() {
+  const brand = YIBIAO_BRANDS.find((b) => b.name === $('#ybBrand').value);
+  const model = brand?.models.find((m) => m.index === Number($('#ybModel').value));
+  return { brand, model };
+}
+
+function updateYibiaoProfile() {
+  const { brand, model } = currentYibiaoSelection();
+  const profile = model ? P.YIBIAO_PROTOCOL_PROFILES[model.index] : null;
+  $('#ybIndex').textContent = model ? String(model.index) : '--';
+  $('#ybProfile').textContent = profile || '未接入';
+  if (brand && model) localStorage.setItem('ec.yibiao', JSON.stringify({ brand: brand.name, index: model.index }));
+}
+
+function renderYibiaoModels(preferredIndex) {
+  const brand = YIBIAO_BRANDS.find((b) => b.name === $('#ybBrand').value) || YIBIAO_BRANDS[0];
+  $('#ybModel').innerHTML = brand.models.map((m) => `<option value="${m.index}">${m.name}</option>`).join('');
+  if (brand.models.some((m) => m.index === Number(preferredIndex))) $('#ybModel').value = String(Number(preferredIndex));
+  updateYibiaoProfile();
+}
+
+function initYibiaoProtocols() {
+  const saved = safeParse(localStorage.getItem('ec.yibiao'));
+  const brand = YIBIAO_BRANDS.find((b) => b.name === saved.brand) || YIBIAO_BRANDS[0];
+  $('#ybBrand').innerHTML = YIBIAO_BRANDS.map((b) => `<option value="${b.name}">${b.name}</option>`).join('');
+  $('#ybBrand').value = brand.name;
+  renderYibiaoModels(saved.index);
+}
+
+async function writeYibiaoProtocol(close = false) {
+  if (!state.connected) return toast('请先连接蓝牙');
+  const { model } = currentYibiaoSelection();
+  const cmd = P.buildYibiaoProtocolWriteCmd(close ? 0 : model?.index);
+  if (!cmd) return toast('该协议未接入');
+  const label = close ? '关闭仪表通讯' : `写入${model.name}协议`;
+  if (!confirm(close ? '确认关闭仪表通讯？' : `选择${model.name}协议并写入？`)) return;
+  try {
+    await send(cmd, label);
+    toast(close ? '关闭通讯指令已下发' : '协议已下发');
+  } catch (e) {
+    toast(e.message || '发送失败');
+  }
+}
+
 /* ---------- 事件绑定 ---------- */
 function bind() {
   $('#btnConnect').addEventListener('click', connect);
@@ -1132,6 +1195,10 @@ function bind() {
 
   $('#btnFactory').addEventListener('click', factoryReset);
   $('#btnReadInfo').addEventListener('click', readAllInfo);
+  $('#ybBrand').addEventListener('change', () => renderYibiaoModels());
+  $('#ybModel').addEventListener('change', updateYibiaoProfile);
+  $('#btnYbWrite').addEventListener('click', () => writeYibiaoProtocol(false));
+  $('#btnYbClose').addEventListener('click', () => writeYibiaoProtocol(true));
   $('#btnDiscover').addEventListener('click', async () => {
     if (!state.connected) return toast('请先连接蓝牙');
     try {
@@ -1202,6 +1269,7 @@ function bind() {
 /* ---------- 启动 ---------- */
 async function main() {
   bind();
+  initYibiaoProtocols();
   renderStatusChips(null);
   setFault([]);
   renderLearn();

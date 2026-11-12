@@ -134,6 +134,22 @@
         </div>
       </div>
       <div class="card">
+        <div class="card-head"><h3>车辆通讯协议</h3><span class="hint">仪表参数 · msgId 01</span></div>
+        <div class="row">
+          <select class="input" id="ybBrand" aria-label="品牌"></select>
+          <select class="input" id="ybModel" aria-label="车型"></select>
+        </div>
+        <div class="kv">
+          <div><span>协议索引</span><b id="ybIndex">--</b></div>
+          <div><span>4 字节 Profile</span><b id="ybProfile">--</b></div>
+        </div>
+        <p class="muted">请按实际车型选择，选错可能导致仪表通讯异常。写入成功提示仅表示指令已发送，不等待专用车型应答。</p>
+        <div class="row">
+          <button class="btn btn-primary" id="btnYbWrite">写入协议</button>
+          <button class="btn btn-danger" id="btnYbClose">关闭通讯</button>
+        </div>
+      </div>
+      <div class="card">
         <div class="card-head"><h3>连接信息</h3></div>
         <div class="kv">
           <div><span>设备名称</span><b id="devName">--</b></div>

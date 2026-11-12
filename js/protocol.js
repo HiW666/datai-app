@@ -84,6 +84,58 @@ export function buildFrame(payloadHex, mode = 'sum8') {
   return p + appendChecksum(p, mode);
 }
 
+// 仪表车辆通讯协议：索引与 4 字节 Profile 均来自主包车型列表
+export const YIBIAO_PROTOCOL_PROFILES = {
+  0: '08610C00',
+  1: '30000C0A',
+  2: '30000C0B',
+  3: '08610E01',
+  4: '0A000F02',
+  5: '0A000C05',
+  6: '08610C03',
+  7: '08610C04',
+  8: '30000C06',
+  9: '08610C07',
+  10: '30000C0C',
+  11: '30000C0D',
+  12: '30000C0E',
+  13: '30000C0F',
+  16: '30000C10',
+  17: '30000C11',
+  18: '30000C12',
+  19: '30000C13',
+  20: '30000C14',
+  21: '30000C15',
+  22: '30000C16',
+  23: '30000C17',
+  24: '30000C18',
+  25: '30000C19',
+  26: '30000C1A',
+  27: '30000C1D',
+  28: '30000C1B',
+  29: '30000C19',
+  30: '30000C1A',
+  31: '30000C1C',
+  32: '30000C20',
+  33: '30000C21',
+  34: '30000C22',
+  35: '30000C23',
+  36: '30000C24',
+  37: '30000C25',
+  38: '30000C26',
+  39: '30000C30',
+  40: '30000C31',
+  41: '30000C32',
+  42: '30000C33',
+  43: '30000C34',
+};
+
+export function buildYibiaoProtocolWriteCmd(index) {
+  const payload = YIBIAO_PROTOCOL_PROFILES[Number(index)];
+  if (!payload) return null;
+  return '0501000401' + (payload.length / 2).toString(16).toUpperCase().padStart(2, '0') + payload;
+}
+
 // 响应帧：01 05 02 TT | msgId | len | data(len) | crc(1)
 // 从可能粘包的十六进制流中提取完整帧
 export function extractFrames(bufferHex) {
