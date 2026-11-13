@@ -3,7 +3,7 @@
   "source": "大泰电控主包 paralistkey",
   "generatedAt": "2026-11-12T18:06:23.847Z",
   "groups": 13,
-  "fields": 61
+  "fields": 62
  },
  "msgs": {
   "1": {
@@ -2355,6 +2355,70 @@
      "dr": 1,
      "dt": 0,
      "hidden": false
+    },
+    {
+     "id": 20009,
+     "key": "field_20009",
+     "name": "电机额定磁链",
+     "formType": "input",
+     "msgId": 1,
+     "offset": 16,
+     "dlen": 4,
+     "dr": 1,
+     "dt": 1,
+     "hidden": false,
+     "unit": "uWb",
+     "min": -2147483648,
+     "max": 2147483647,
+     "desc": "对应自学习识别结果中的磁链"
+    },
+    {
+     "id": 20010,
+     "key": "field_20010",
+     "name": "电机相电阻",
+     "formType": "input",
+     "msgId": 1,
+     "offset": 20,
+     "dlen": 4,
+     "dr": 1,
+     "dt": 1,
+     "hidden": false,
+     "unit": "uOhm",
+     "min": -2147483648,
+     "max": 2147483647,
+     "desc": "对应自学习识别结果中的电阻"
+    },
+    {
+     "id": 20011,
+     "key": "field_20011",
+     "name": "电机D轴电感",
+     "formType": "input",
+     "msgId": 1,
+     "offset": 24,
+     "dlen": 4,
+     "dr": 1,
+     "dt": 1,
+     "hidden": false,
+     "unit": "uH",
+     "min": -2147483648,
+     "max": 2147483647,
+     "desc": "对应自学习识别结果中的D轴电感"
+    },
+    {
+     "id": 20012,
+     "key": "field_20012",
+     "name": "电机Q轴电感",
+     "formType": "input",
+     "msgId": 1,
+     "offset": 28,
+     "dlen": 4,
+     "dr": 1,
+     "dt": 1,
+     "hidden": false,
+     "unit": "uH",
+     "min": -2147483648,
+     "max": 2147483647,
+     "desc": "对应自学习识别结果中的Q轴电感"
     }
    ]
   },
