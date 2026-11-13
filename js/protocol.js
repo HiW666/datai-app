@@ -394,21 +394,8 @@ export const iap = {
   reset: () => iapWrap('2400220200'),
 };
 
-// 自学习帧
-export function parseLearnParams(frame) {
-  if (!frame || frame.type !== '01' || frame.msgId !== '00') return null;
-  const d = frame.data;
-  if (d.length < 24) return null;
-  return {
-    speedRPM: leToInt(d.substr(0, 4)),
-    accelRPMs: leToInt(d.substr(4, 4)),
-    iphRefA: +(leToInt(d.substr(8, 4)) * 0.1).toFixed(1),
-    irampMs: leToInt(d.substr(12, 4)),
-    mode: parseInt(d.substr(16, 2), 16),
-    sensorType: parseInt(d.substr(18, 2), 16),
-  };
-}
-
+// 自学习识别结果：01 05 02 01 | 08 | 12 | data(18)
+// 布局与主包 parseSelfStudyStatusFrame 一致，多字节字段为小端
 export function parseLearnStatus(frame) {
   if (!frame || frame.type !== '01' || frame.msgId !== '08') return null;
   const d = frame.data;
@@ -421,19 +408,20 @@ export function parseLearnStatus(frame) {
   let angle = (fAngle >> 1) & 0x7fff;
   if (angle & 0x4000) angle -= 0x8000;
   const yaw = (angle / 4096) * (180 / Math.PI);
+  // 磁链为 Q11.5：高 11 位整数 + 低 5 位/32
   const ratioRaw = (u16(8) || 0).toString(2).padStart(16, '0');
   const cilian = parseInt(ratioRaw.slice(0, 11), 2) + parseInt(ratioRaw.slice(11), 2) / 32;
   return {
     state,
     sub,
     seconds,
-    yaw: Number.isFinite(yaw) ? +yaw.toFixed(2) : 0,
+    yaw: Number.isFinite(yaw) ? +yaw.toFixed(3) : 0,
     results: {
       dianzhu: u16(2) || 0,
       diangand: u16(4) || 0,
       dianganq: u16(6) || 0,
-      cilian: Number.isFinite(cilian) ? +cilian.toFixed(3) : 0,
-      jiaodu: Number.isFinite(yaw) ? +yaw.toFixed(2) : 0,
+      cilian: Number.isFinite(cilian) ? +cilian.toFixed(5) : 0,
+      jiaodu: Number.isFinite(yaw) ? +yaw.toFixed(3) : 0,
       zbxiang: fAngle & 1 ? '是' : '否',
       zbmax: u16(10) || 0,
       zbmin: u16(12) || 0,

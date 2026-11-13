@@ -748,51 +748,31 @@ function renderLearn() {
 }
 
 function handleLearnFrame(frame) {
-  if (frame.msgId === '08') {
-    const s = P.parseLearnStatus(frame);
-    if (s) {
-      state.learn = { ...(state.learn || {}), ...s };
-      renderLearn();
-      renderLearnResults();
-    }
-    return;
-  }
-  if (frame.msgId === '00') {
-    const p = P.parseLearnParams(frame);
-    if (p) {
-      state.learn = { ...(state.learn || {}), params: p };
-      renderLearn();
-      renderLearnResults();
-    }
-  }
+  if (frame.msgId !== '08') return;
+  const s = P.parseLearnStatus(frame);
+  if (!s) return;
+  state.learn = { ...(state.learn || {}), ...s };
+  renderLearn();
+  renderLearnResults();
 }
 
 function renderLearnResults() {
-  const l = state.learn || {};
-  const p = l.params;
-  const r = l.results;
-  const rows = [];
-  if (p) {
-    rows.push(['额定转速', p.speedRPM + ' rpm']);
-    rows.push(['加速度', p.accelRPMs + ' rpm/s']);
-    rows.push(['相电流参考', p.iphRefA + ' A']);
-    rows.push(['电流爬升时间', p.irampMs + ' ms']);
-    rows.push(['模式', String(p.mode)]);
-    rows.push(['传感器类型', String(p.sensorType)]);
-  }
-  if (r) {
-    rows.push(['电阻辨识', String(r.dianzhu)]);
-    rows.push(['D 轴电感', String(r.diangand)]);
-    rows.push(['Q 轴电感', String(r.dianganq)]);
-    rows.push(['磁链', String(r.cilian)]);
-    rows.push(['角度', r.jiaodu + '°']);
-    rows.push(['转把方向', r.zbxiang]);
-    rows.push(['转把最大', String(r.zbmax)]);
-    rows.push(['转把最小', String(r.zbmin)]);
-  }
+  const r = (state.learn || {}).results;
+  const rows = r
+    ? [
+        ['电阻(mΩ)', String(r.dianzhu)],
+        ['D轴电感(uH)', String(r.diangand)],
+        ['Q轴电感(uH)', String(r.dianganq)],
+        ['磁链(mWb)', String(r.cilian)],
+        ['角度偏移(°)', String(r.jiaodu)],
+        ['AB相是否交换', r.zbxiang],
+        ['转把行程最大值', String(r.zbmax)],
+        ['转把行程最小值', String(r.zbmin)],
+      ]
+    : [];
   $('#learnResults').innerHTML = rows.length
     ? rows.map(([k, v]) => `<div><span>${escapeHtml(k)}</span><b>${escapeHtml(String(v))}</b></div>`).join('')
-    : '<span class="muted">暂无数据</span>';
+    : '<span class="muted">暂无数据，请先读取状态</span>';
 }
 
 async function learnCmd(payload, note) {
@@ -1210,12 +1190,7 @@ function bind() {
   });
 
   // 自学习
-  $('#btnLearnRead').addEventListener('click', async () => {
-    await learnCmd('050101010800', '读取自学习状态');
-    setTimeout(async () => {
-      if (state.connected) await send('050101010000').catch(() => {});
-    }, 300);
-  });
+  $('#btnLearnRead').addEventListener('click', () => learnCmd('050101010800', '读取自学习状态'));
   $('#btnLearnStart').addEventListener('click', async () => {
     if (!confirm('开始自学习会驱动电机，请确认车辆已架空。继续？')) return;
     await learnCmd('050100010701AA', '触发自学习');
@@ -1223,7 +1198,7 @@ function bind() {
     renderLearn();
   });
   $('#btnLearnDir').addEventListener('click', () => learnCmd('05010001080155', '切换电机方向'));
-  $('#btnLearnSave').addEventListener('click', () => learnCmd('05010001090155', '保存自学习参数'));
+  $('#btnLearnSave').addEventListener('click', () => learnCmd('05010001090155', '保存自学习识别结果'));
 
   // OTA
   $('#btnPickFw').addEventListener('click', () => $('#otaFile').click());
