@@ -2,8 +2,8 @@
  "meta": {
   "source": "大泰电控主包 paralistkey",
   "generatedAt": "2026-11-12T18:06:23.847Z",
-  "groups": 12,
-  "fields": 58
+  "groups": 13,
+  "fields": 61
  },
  "msgs": {
   "1": {
@@ -1906,6 +1906,63 @@
  "groups": [
   {
    "title": "电压参数",
+   "msgId": 6,
+   "msgIds": [
+    6
+   ],
+   "gridLayout": false,
+   "requireImu": false,
+   "rows": [
+    {
+     "id": 5001,
+     "key": "field_5001",
+     "name": "标称电压",
+     "formType": "input",
+     "msgId": 6,
+     "offset": 0,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 1,
+     "hidden": false,
+     "unit": "V",
+     "step": 0.1,
+     "decimals": 1
+    },
+    {
+     "id": 5002,
+     "key": "field_5002",
+     "name": "过压阈值",
+     "formType": "input",
+     "msgId": 6,
+     "offset": 2,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "V",
+     "step": 0.1,
+     "decimals": 1
+    },
+    {
+     "id": 5007,
+     "key": "field_5007",
+     "name": "欠压阈值1",
+     "formType": "input",
+     "msgId": 6,
+     "offset": 12,
+     "dlen": 2,
+     "dr": 0.1,
+     "dt": 0,
+     "hidden": false,
+     "unit": "V",
+     "step": 0.1,
+     "decimals": 1
+    }
+   ]
+  },
+  {
+   "title": "电压参数",
+   "page": "learn",
    "msgId": 6,
    "msgIds": [
     6

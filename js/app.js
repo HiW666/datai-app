@@ -94,6 +94,7 @@ function setView(name) {
   $$('.tabbar button').forEach((b) => b.classList.toggle('active', b.dataset.view === name));
   if (name === 'logs') renderLogs();
   if (name === 'params') renderParams();
+  if (name === 'learn') renderLearnVoltage();
   if (name === 'dash') startPoll();
   else stopPoll();
 }
@@ -386,11 +387,13 @@ function paramKey(msgId) {
 async function initSchema() {
   await loadSchema();
   state.schema = schemaState.source === 'file' && schemaState.data.length ? schemaState.data : fallbackGroups();
+  const paramsOnly = state.schema.filter((g) => g.page !== 'learn');
   $('#paramNoticeText').textContent =
     schemaState.source === 'file' && schemaState.data.length
-      ? `已加载参数表：${state.schema.length} 组，${state.schema.reduce((n, g) => n + g.fields.length, 0)} 个字段。`
+      ? `已加载参数表：${paramsOnly.length} 组，${paramsOnly.reduce((n, g) => n + g.fields.length, 0)} 个字段。`
       : '未找到 param-schema.json，当前为原始帧模式。解包 __APP__.wxapkg 生成该文件后，会自动显示完整参数控件。';
   renderParams();
+  renderLearnVoltage();
 }
 
 function renderParams(openGi) {
@@ -401,6 +404,7 @@ function renderParams(openGi) {
   if (openGi != null) open.add(String(openGi));
   box.innerHTML = state.schema
     .map((g, gi) => {
+      if (g.page === 'learn') return '';
       if (g.metaReady) return renderMetaGroup(g, gi);
       return renderRawGroup(g, gi);
     })
@@ -408,7 +412,22 @@ function renderParams(openGi) {
   box.querySelectorAll('details').forEach((d) => {
     if (open.has(d.dataset.g)) d.open = true;
   });
-  bindParamEvents();
+  bindParamEvents(box);
+}
+
+// 学习页复用参数组：schema 中 page=learn 的组在这里渲染一份
+function renderLearnVoltage() {
+  const box = $('#learnParamGroups');
+  if (!box || !state.schema.length) return;
+  const open = new Set();
+  box.querySelectorAll('details[open]').forEach((d) => open.add(d.dataset.g));
+  box.innerHTML = state.schema
+    .map((g, gi) => (g.page === 'learn' && g.metaReady ? renderMetaGroup(g, gi) : ''))
+    .join('');
+  box.querySelectorAll('details').forEach((d) => {
+    if (open.has(d.dataset.g)) d.open = true;
+  });
+  bindParamEvents(box);
 }
 
 function renderMetaGroup(g, gi) {
@@ -553,8 +572,7 @@ function renderRawGroup(g, gi) {
   </details>`;
 }
 
-function bindParamEvents() {
-  const box = $('#paramGroups');
+function bindParamEvents(box = $('#paramGroups')) {
   const onEdit = (e) => {
     const t = e.target;
     if (t.dataset.g == null || t.dataset.f == null) return;
@@ -644,7 +662,9 @@ async function readMsg(msgId, openGi) {
     fields[f.id] = decodeUiValue(P.decodeField(slice, f), f);
   }
   state.params[msgId] = { ...(state.params[msgId] || {}), ...fields };
-  renderParams(openGi);
+  const target = state.schema[openGi];
+  renderParams(target && target.page === 'learn' ? undefined : openGi);
+  renderLearnVoltage();
   return data;
 }
 
@@ -688,6 +708,8 @@ async function saveGroup(g, gi) {
   try {
     await wait;
     state.params[g.msgId] = { ...(state.params[g.msgId] || {}), ...edited };
+    if (state.view === 'learn') renderLearnVoltage();
+    else renderParams();
     toast('保存成功');
   } catch (e) {
     toast('未收到确认，请重试');
