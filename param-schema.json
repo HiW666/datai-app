@@ -2,7 +2,7 @@
  "meta": {
   "source": "大泰电控主包 paralistkey",
   "generatedAt": "2026-11-12T18:06:23.847Z",
-  "groups": 13,
+  "groups": 14,
   "fields": 62
  },
  "msgs": {
@@ -2355,7 +2355,19 @@
      "dr": 1,
      "dt": 0,
      "hidden": false
-    },
+    }
+   ]
+  },
+  {
+   "title": "电机高级参数",
+   "warn": "危险参数：直接决定电机换相与输出。修改前必须先读取并记录原值，车辆架空、电机停转时再操作；写入错误可能导致电机不转、抖动或过流。",
+   "msgId": 1,
+   "msgIds": [
+    1
+   ],
+   "gridLayout": false,
+   "requireImu": false,
+   "rows": [
     {
      "id": 20009,
      "key": "field_20009",

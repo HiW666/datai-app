@@ -444,9 +444,13 @@ function renderMetaGroup(g, gi) {
     })
     .join('');
 
+  const warn = g.warn
+    ? `<div class="fault-banner bad param-warn">${escapeHtml(g.warn)}</div>`
+    : '';
   return `<details class="param-group" data-g="${gi}">
-    <summary><span class="title">${escapeHtml(g.title)}</span><span class="meta">msgId ${g.msgId} · ${g.fields.filter((f) => !f.hidden).length} 项</span></summary>
+    <summary><span class="title">${escapeHtml(g.title)}${g.warn ? '<span class="danger-tag">危险</span>' : ''}</span><span class="meta">msgId ${g.msgId} · ${g.fields.filter((f) => !f.hidden).length} 项</span></summary>
     <div class="param-body">
+      ${warn}
       ${rows}
       <div class="param-actions">
         <button class="btn btn-sm" data-action="read" data-g="${gi}">读取</button>
@@ -687,6 +691,7 @@ async function readGroup(g, gi) {
 
 async function saveGroup(g, gi) {
   if (!state.connected) return toast('请先连接蓝牙');
+  if (g.warn && !confirm(`${g.title}：\n${g.warn}\n\n确认写入控制器？`)) return;
   const id = paramKey(g.msgId);
   const layout = schemaState.msgs[g.msgId];
   if (!layout) throw new Error('缺少该 msgId 的参数布局');

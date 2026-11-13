@@ -135,6 +135,8 @@ main { padding: 14px; max-width: 820px; margin: 0 auto; }
 .param-group > summary::-webkit-details-marker { display: none; }
 .param-group summary .title { font-weight: 600; }
 .param-group summary .meta { color: var(--muted); font-size: 11px; }
+.danger-tag { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 4px; background: rgba(255,77,79,.15); color: #ff9a9b; font-size: 10px; font-weight: 600; vertical-align: middle; }
+.param-warn { margin: 0 0 10px; }
 .param-body { padding: 0 14px 14px; border-top: 1px solid var(--line); }
 .field { padding: 12px 0; border-bottom: 1px dashed rgba(255,255,255,.05); }
 .field:last-child { border-bottom: 0; }

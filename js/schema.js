@@ -107,6 +107,7 @@ function normalizeGroups(groups) {
     return {
       title: g.title || '参数组',
       page: g.page === 'learn' ? 'learn' : 'params',
+      warn: g.warn || '',
       msgId: hexMsgId(g.msgId),
       msgIds: (g.msgIds && g.msgIds.length ? g.msgIds : [g.msgId]).map(hexMsgId),
       gridLayout: !!g.gridLayout,
